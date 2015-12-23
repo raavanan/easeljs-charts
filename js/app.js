@@ -4,9 +4,6 @@ function init(){
     var mainContainer = new createjs.Container();
     stage.addChild(mainContainer);
 
-    var bgContainer = new createjs.Container();
-    mainContainer.addChild(bgContainer);
-
     var drawingContainer = new createjs.Container();
     mainContainer.addChild(drawingContainer);
 
@@ -14,5 +11,20 @@ function init(){
     mainContainer.addChild(titleContainer);
 
     drawColumnChart(data, stage, drawingContainer);
+
+    $("#barChart").click(function(){
+      drawingContainer.removeAllChildren();
+      drawBarChart(data, stage, drawingContainer);
+    });
+    $("#columnChart").click(function(){
+      drawingContainer.removeAllChildren();
+      drawColumnChart(data, stage, drawingContainer);
+    });
+    $("#pieChart").click(function(){
+      console.log(data.charts.chartName);
+      data.charts.chartName = 'simplepie';
+      drawingContainer.removeAllChildren();
+      drawPieChart(data, stage, drawingContainer);
+    });
 
 }

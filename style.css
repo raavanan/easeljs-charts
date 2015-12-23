@@ -24,3 +24,10 @@ canvas{
   left:0;
   right:0;
 }
+.buttons{
+  width:100px;
+  float:left;padding:10px;
+}
+.btn{
+  margin:5px;
+}

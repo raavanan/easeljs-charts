@@ -14,47 +14,7 @@ var chartData = chartdata.charts;
 			gridMax = Math.max(chart[i].value1, gridMax);
 			maxValue += chart[i].value1;
 		}
-		if(chartData.chartName == 'percentagepie'){
-			var baseCircle = new createjs.Shape();
-			baseCircle.graphics.beginFill("#999").drawCircle(0, 0, 250);
-			baseCircle.x = stage.canvas.width * 0.5;
-			baseCircle.y = stage.canvas.height * 0.5;
-
-			var param = chart[0];
-
-			var valuePercent = param.value1 * 100 / maxValue;
-
-			var valueAngle = valuePercent * 360 / 100;
-			var startAngle = thisAngle * Math.PI/180;
-			var endAngle = (thisAngle + valueAngle) * Math.PI/180;
-			var arc = new createjs.Shape();
-		arc.graphics.f(colors[0]).moveTo(0,0)
-					.arc(0, 0, 250, startAngle, endAngle);
-		arc.x = 0;
-		arc.y = 0;
-		arc.scaleY = 0;
-		arc.scaleX = 0;
-		//console.log(arc);
-		var arcContainer = new createjs.Container();
-		arcContainer.addChild(arc);
-		arcContainer.y = stage.canvas.height * 0.5;
-		arcContainer.x = stage.canvas.width * 0.5;
-		arcContainer.rotation = -90;
-
-		var valueLabel = new createjs.Text(param.value1, "55px arial", "#fff");
-		valueLabel.x =  stage.canvas.width - 550;
-		valueLabel.y = stage.canvas.height * 0.4;
-		console.log("chart::"+param.value1);
-
-
-		chartContainer.addChild(baseCircle, arcContainer, valueLabel);
-
-		// animating
-
-		createjs.Tween.get(arc, {loop:false})
-						.wait(1000).to({scaleY : 1, scaleX : 1}, 1500, createjs.Ease.backOut);
-
-		} else if(chartData.chartName == 'simplepie'){
+	 if(chartData.chartName == 'simplepie'){
 
 			//calculating the total of chart values
 
@@ -103,7 +63,7 @@ var chartData = chartdata.charts;
 		var legendConatiner = new createjs.Container();
 		legendConatiner.x = stage.canvas.width * 5 / 100;
 		legendConatiner.y = stage.canvas.height - 100;
-		legendConatiner.alpha = 0;
+		legendConatiner.alpha = 1;
     drawingContainer.addChild(legendConatiner);
 		for(i = 0;i<chart.length;i++){
 		var legendColor = new createjs.Shape();

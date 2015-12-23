@@ -4,13 +4,12 @@ var newChartdata =  {
           "format": 1000,
           "xAxis": "[Enter X-axis label]",
           "yAxis": "[Enter Y-axis label]",
-          "source": "[Enter source]",
+          "source": "Source:Wikipedia",
           "maxChartValue": 100,
           "minChartValue": 0,
           "chartName": "columnSimpleRectange",
           "chartType": "normalChart",
           "style": "columnDefault",
-          "theme": "mnoHighlightWhitebgTurquoise",
           "showAxisTitle": false,
           "showSource": true,
           "asset" : {
@@ -40,6 +39,24 @@ var newChartdata =  {
             {
               "name": "HackerNews",
               "value1": 45,
+              "value2": 55,
+              "index": 3
+            },
+            {
+              "name": "dribble",
+              "value1": 47,
+              "value2": 55,
+              "index": 3
+            },
+            {
+              "name": "behance",
+              "value1": 65,
+              "value2": 55,
+              "index": 3
+            },
+            {
+              "name": "trello",
+              "value1": 78,
               "value2": 55,
               "index": 3
             }

@@ -371,39 +371,3 @@ stage.update();
 createjs.Ticker.setFPS(24);
 createjs.Ticker.addEventListener("tick", stage);
 }
-var callout = new createjs.Container();
-function showColumnHighlight (num) {
-  for(i=0;i<bar.length;i++){
-    if(i != parseInt(num)){
-      createjs.Tween.get(bar[i], {loop:false}).to({alpha:0.2}, 800, createjs.Ease.sineOut);
-      cStage.update();
-    } else {
-      var highlightText = new createjs.Text(chartData.chart[parseInt(num)].caption, "24px arial", "#fff");
-      highlightText.x = 15;
-      highlightText.y =15;
-
-      var calloutBg = new createjs.Shape();
-      calloutBg.graphics.f('#333').drawRoundRect(0,0,300,100,10);
-      callout.addChild(calloutBg, highlightText);
-      callout.x = bar[i].x - 20;
-      callout.y = 200;
-      callout.scaleX = callout.scaleY = 75/100;
-      callout.alpha = 0;
-      cStage.addChild(callout);
-      createjs.Tween.get(callout, {loop:false}).to({alpha:1}, 600, createjs.Ease.sineOut);
-      cStage.update();
-    }
-  }
-}
-
-function hideColumnHighlight () {
-  for(i=0;i<bar.length;i++){
-    createjs.Tween.get(bar[i], {loop:false}).to({alpha:1}, 800, createjs.Ease.sineOut);
-  }
-  createjs.Tween.get(callout, {loop:false}).to({alpha:0}, 600, createjs.Ease.sineOut);
-  cStage.update();
-  setTimeout(function () {
-    cStage.removeChild(callout);
-  }, 800);
-
-}
