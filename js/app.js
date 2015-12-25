@@ -26,5 +26,17 @@ function init(){
       drawingContainer.removeAllChildren();
       drawPieChart(data, stage, drawingContainer);
     });
+    $("#donut").click(function(){
+      console.log(data.charts.chartName);
+      data.charts.chartName = 'donut';
+      drawingContainer.removeAllChildren();
+      drawPieChart(data, stage, drawingContainer);
+    });
+    $("#halfpie").click(function(){
+      console.log(data.charts.chartName);
+      data.charts.chartName = 'halfpie';
+      drawingContainer.removeAllChildren();
+      drawPieChart(data, stage, drawingContainer);
+    });
 
 }

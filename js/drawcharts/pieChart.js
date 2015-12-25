@@ -56,7 +56,7 @@ var chartData = chartdata.charts;
 		createjs.Tween.get(arc, {loop:false})
 			.wait(interval).to({scaleY : 1, scaleX : 1}, 1500, createjs.Ease.backOut);
 		createjs.Tween.get(valueLabel, {loop:false})
-			.wait(1500).to({alpha:1}, 1500, createjs.Ease.linear);
+			.wait(1500).to({alpha:0}, 1500, createjs.Ease.linear);
 		}
 
 		//constructing legend
@@ -67,7 +67,8 @@ var chartData = chartdata.charts;
     drawingContainer.addChild(legendConatiner);
 		for(i = 0;i<chart.length;i++){
 		var legendColor = new createjs.Shape();
-		legendColor.graphics.beginFill("#"+colors[i].substring(2))
+
+		legendColor.graphics.beginFill(colors[i])
 					.drawRect(0, 0, 30, 10).endFill();
 		legendColor.x = 200*i;
 		legendColor.y = 5;
@@ -87,7 +88,7 @@ var chartData = chartdata.charts;
     }
     createjs.Ticker.addEventListener("tick", stage);
 
-}	else if(chartData.chartName == 'doughnut'){
+}	else if(chartData.chartName == 'donut'){
 			//calculating the total of chart values
 		console.log("chart max value::"+maxValue);
 		var mask = new createjs.Shape();
@@ -138,7 +139,7 @@ var chartData = chartdata.charts;
 		createjs.Tween.get(arc, {loop:false})
     .wait(interval).to({scaleY : 1, scaleX : 1, alpha:1}, 1500, createjs.Ease.backOut);
 		createjs.Tween.get(valueLabel, {loop:false})
-    .wait(1500).to({alpha:1}, 1500, createjs.Ease.linear);
+    .wait(1500).to({alpha:0}, 1500, createjs.Ease.linear);
 		}
 
 		//constructing legend
@@ -269,7 +270,7 @@ var chartData = chartdata.charts;
 
 		console.log("chart::"+param.value1);
 
-		valueLabel.alpha = 1;
+		valueLabel.alpha = 0;
 		valueLabel.rotation = -180;
 		chartContainer.addChild(arc, valueLabel);
 		chartContainer.x = stage.canvas.width * 0.5;
